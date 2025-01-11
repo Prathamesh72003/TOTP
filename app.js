@@ -9,7 +9,8 @@ const csrf = require("csurf");
 const session = require("express-session");
 
 const app = express();
-const PORT = 4000;
+const PORT = 3000;
+const hostname = '0.0.0.0'
 
 app.use(express.static('public'));
 
@@ -255,6 +256,6 @@ app.get("/logout", (req, res) => {
     });
 });
 
-app.listen(PORT, '127.0.0.1',() => {
-    console.log(`Server is running on http://127.0.0.1:${PORT}`);
+app.listen(PORT, hostname,() => {
+    console.log(`Server is running on http://${hostname}:${PORT}`);
 });

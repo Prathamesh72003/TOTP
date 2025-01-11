@@ -1,13 +1,11 @@
-FROM node:20.15.1
+FROM node:16
 
 WORKDIR /app
 
-COPY . .
+COPY . /app
 
-COPY package.json package-lock.json ./
+RUN npm install
 
-RUN npm install --production
+EXPOSE 3000
 
-EXPOSE 4000
-
-CMD ["node", "app.js"]
+CMD ["npm", "start"]
